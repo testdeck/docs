@@ -1,6 +1,6 @@
-
 pre.highlight {
-  background-color: #1E1E1E;
+  background-color: #FFFFFF;
+  border: 1px solid #F3F3F3;
   border-radius: 1em;
   padding: 1em 2em;
   margin: 1em 0em;
@@ -82,3 +82,15 @@ code {
 .highlight .il { color: #2AA198 } /* Literal.Number.Integer.Long */
 
 .highlight .dl { color: #CE9178 } /* Single and Double Quotes */
+
+@media (prefers-color-scheme: dark) {
+  pre.highlight {
+    background-color: #1E1E1E;
+    border: 1px solid #252526;
+  }
+
+  .highlight .c { color: #008000; font-weight: 600; } /* Comment */
+  .highlight .k { color: #0000FF } /* Keyword */
+  .highlight .l { color: #888FC4 } /* Literal */
+  .highlight .n { color: #888FC4 } /* Name */
+}
