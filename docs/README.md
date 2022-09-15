@@ -44,13 +44,18 @@ npm i --save-dev jasmine typescript @testdeck/jasmine
 ```
 {: .jasmine}
 
-Setup your test runner with TypeScript.
+Setup your ***test framework*** and ***TypeScript***.
 
 Enable `experimentalDecorators` in the `tsconfig.json`:
-```
+``` json
+{
+    "compilerOptions": {
+        "experimentalDecorators": true
+    }
+}
 ```
 
-Then use the ***Testdeck OOP test UI***:
+Then use the ***Testdeck OOP test UI*** in your `test.ts`:
 
 ``` typescript
 import { suite, test } from "@testdeck/mocha";
@@ -85,6 +90,130 @@ import { suite, test } from "@testdeck/jasmine";
 ```
 {: .jasmine}
 
+## Features
+### Suites and Methods
+To make a class suite - create a new class, decorate it with the `@suite` decorator.
+
+To create a test - create a method within a suite class, decorate it with the `@test` decorator.
+
+
+``` typescript
+@suite
+class MyTestSuite1 {
+  @test
+  testMethod1() {
+  }
+
+  @test
+  testMethod2() {
+  }
+}
+
+@suite("Custom Suite Class Name")
+class MyTestSuite2 {
+  @test("Custom test name")
+  testMethod1() {
+  }
+
+  @test "string literal test name"() {
+  }
+}
+
+describe("Testdeck OOP ui", () => {
+  it("can execute side by side TDD/BDD UI", () => {
+  });
+
+  @suite
+  class MyTestSuite3 {
+    @test
+    testMethod1() {
+    }
+  }
+});
+```
+### Async Tests
+> Some test frameworks moved away from `done` callback async tests, but Testdeck supports them where possible.
+
+***Testdeck*** works well with promises.
+
+***Testdeck*** works well with `done` callback.
+``` typescript
+@suite class AsyncSuite {
+  @test test1(done) {
+    setTimeout(done, 1000);
+  }
+
+  @test async test2(): Promise<void> {
+    await fetch('http://testdeck.org');
+  }
+}
+```
+### Lifecycle Hooks
+All test suites allow initialization and teardown and expose hooks that execute:
+ - before all tests in the test suite
+ - before each test in the test suite
+ - after each test in the test suite
+ - after all tests in the test suite
+
+***Testdeck*** exposes these as:
+ - instance `before` and `after` methods,  
+  that execute before and after each test in the class
+ - static `before` and `after` methods,
+  that execute before and after all tests in the class
+
+``` typescript
+@suite
+class MyClass {
+
+  static before() {
+    console.log("- static before");
+  }
+
+  constructor() {
+    console.log("  - new");
+  }
+
+  before() {
+    console.log("    - instance before");
+  }
+
+  @test test1() {
+    console.log("    - test1");
+  }
+  @test test2() {
+    console.log("    - test2");
+  }
+
+  after() {
+    console.log("    - instance after");
+  }
+
+  static after() {
+    console.log("- static after");
+  }
+}
+```
+
+This prints:
+
+- static before
+  - new
+    - instance before
+    - test1
+    - instance after
+  - new
+    - instance before
+    - test2
+    - instance after
+- static after
+
+### Focused Tests
+#### Only
+#### Skip
+### Test Modifiers
+#### Timeout
+### Test Data
+### Dependency Injection
 ## Interoperability
 Compatible with standard functional TDD interfaces:
 ``` typescript
@@ -99,8 +228,9 @@ suite("Top suite", () => {
   }
 });
 ```
+The `@suite` and `@test` decoratros will declare suites and tests. And class tests can be placed near, or within TDD/BDD style suites.
 
-Under the hood the decorators execute in a way like:
+The decorators are implemented to execute code like this:
 ``` typescript
 // Actual Testdeck test
 @suite class Hello {
@@ -115,20 +245,8 @@ Under the hood the decorators execute in a way like:
   static after() {}
 }
 
-// Testdeck implements the @suite and @test decorators so
-// they emit to the test framework roughly to following:
-class Hello {
-  static before() {}
-  before() {}
-
-  world() {
-    assert(false);
-  }
-
-  after();
-  static after();
-}
-
+// Testdeck implements the @suite and @test,
+// to execute code roughly like:
 suite("Hello", () => {
   let instance: null | Hello = null;
 
@@ -145,6 +263,7 @@ suite("Hello", () => {
   afterAll(() => Hello?.after());
 });
 ```
+The actual implementation is a bit more complicated and involves handling async code and test modifiers like timeout or focus tests.
 
 ***Testdeck*** aims to provide ***1:1*** mapping between ***Testdeck OOP test UI*** features and the native test framework features.
 
