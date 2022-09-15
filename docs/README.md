@@ -1,4 +1,4 @@
-# TypeScript OOP test UI
+## TypeScript OOP test UI
 {: .hero-heading}
 ``` typescript
 @suite class Hello {
@@ -11,9 +11,9 @@
 
 ## Getting Started
 Works with:
- - [mocha](https://mochajs.org/)
- - [jest](https://jestjs.io/)
- - [jasmine](https://jasmine.github.io/)
+ - [***Mocha***](https://mochajs.org/)
+ - [***Jest***](https://jestjs.io/)
+ - [***Jasmine***](https://jasmine.github.io/)
 
 ```
 npm i --save-dev mocha typescript @types/mocha @testdeck/mocha
@@ -32,7 +32,7 @@ npm i --save-dev jasmine typescript @testdeck/jasmine
 
 Setup your test runner with TypeScript.
 
-Then the ***Testdeck OOP test UI*** is used, on top of your test framework, like:
+Then use the ***Testdeck OOP test UI***:
 
 ``` typescript
 import { suite, test } from "@testdeck/mocha";

@@ -70,7 +70,7 @@ header h1 img {
 
 header div.menu {
   float: right;
-  margin: 36px 0px 0px 0px;
+  margin: 44px 0px 0px 0px;
 
   @include mobile {
     float: none;
@@ -156,8 +156,8 @@ body.jasmine div.jest
 }
 
 .hero-heading {
-  margin-top: 120px;
+  margin-top: 105px;
 }
 .hero-trailing {
-  margin-bottom: 120px;
+  margin-bottom: 105px;
 }
