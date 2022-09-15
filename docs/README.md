@@ -9,12 +9,26 @@
 ```
 {: .hero-trailing}
 
-## Getting Started
-Works with:
- - [***Mocha***](https://mochajs.org/)
- - [***Jest***](https://jestjs.io/)
- - [***Jasmine***](https://jasmine.github.io/)
+## What is Testdeck?
+***Testdeck*** is a ***decorator*** based test UI wrapper around your favourite JavaScript test framework.
 
+With ***Testdeck***, you can write your tests in ***object-oriented*** style, effectfully making use of inheritance to encapsulate test suite behaviour.
+
+***Testdeck*** supports browser based testing (for example using ***Karma***).
+
+***Testdeck*** makes no assumptions about the assertion/expectation frameworks you use.
+
+***Testdeck*** is also the successor of ***mocha-typescript***.
+
+## Getting Started
+Select your testing framework:
+<menu class="framework">
+  <li class="mocha"><a href="javascript: void selectTestFramework('mocha')"><em>Mocha</em></a></li>
+  <li class="jest"><a href="javascript: void selectTestFramework('jest')"><em>Jest</em></a></li>
+  <li class="jasmine"><a href="javascript: void selectTestFramework('jasmine')"><em>Jasmine</em></a></li>
+</menu>
+
+Install the test framework, TypeScript, typings and the Testdeck module for your test framework:
 ```
 npm i --save-dev mocha typescript @types/mocha @testdeck/mocha
 ```
@@ -31,6 +45,10 @@ npm i --save-dev jasmine typescript @testdeck/jasmine
 {: .jasmine}
 
 Setup your test runner with TypeScript.
+
+Enable `experimentalDecorators` in the `tsconfig.json`:
+```
+```
 
 Then use the ***Testdeck OOP test UI***:
 

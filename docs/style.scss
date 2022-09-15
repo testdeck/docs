@@ -49,7 +49,7 @@ h4 {
 
 header {
   position: sticky;
-  top: -96px;
+  top: -165px;
   background: white;
   padding: 0px 0px 8px 0px;
 }
@@ -108,6 +108,19 @@ body.hamburger-open>nav {
   }
 }
 
+menu.framework li {
+  list-style-type: none;
+}
+body.mocha menu.framework>li.mocha {
+  list-style-type: circle;
+}
+body.jest menu.framework>li.jest {
+  list-style-type: circle;
+}
+body.jasmine menu.framework>li.jasmine {
+  list-style-type: circle;
+}
+
 header div.menu div.framework {
   display: inline-block;
 
@@ -116,32 +129,32 @@ header div.menu div.framework {
   }
 }
 
-menu.framework {
+header menu.framework {
   list-style-type: none;
   margin: 0px;
   padding: 0px;
   display: inline-block;
 }
-menu.framework>li {
+header menu.framework>li {
   display: inline-block;
   vertical-align: -10px;
 }
-menu.framework a.mocha>img,
-menu.framework a.jest>img,
-menu.framework a.jasmine>img {
+header menu.framework a.mocha>img,
+header menu.framework a.jest>img,
+header menu.framework a.jasmine>img {
   width: 32px;
   height: 32px;
 }
-menu.framework a.mocha {
+header menu.framework a.mocha {
   border-bottom: 3px solid transparent;
 }
-body.mocha menu.framework a.mocha {
+body.mocha header menu.framework a.mocha {
   border-bottom: 3px solid black;
 }
-body.jest menu.framework a.jest {
+body.jest header menu.framework a.jest {
   border-bottom: 3px solid black;
 }
-body.jasmine menu.framework a.jasmine {
+body.jasmine header menu.framework a.jasmine {
   border-bottom: 3px solid black;
 }
 
