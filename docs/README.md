@@ -1,5 +1,5 @@
-<div class="hero-banner" style="margin: 120px; 0px;">
 # TypeScript OOP test UI
+{: .hero-heading}
 ``` typescript
 @suite class Hello {
   @test world() {
@@ -7,7 +7,7 @@
   }
 }
 ```
-</div>
+{: .hero-trailing}
 
 ## Getting Started
 Works with:
