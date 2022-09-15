@@ -1,3 +1,4 @@
+<div class="hero-banner" style="margin: 120px; 0px;">
 # TypeScript OOP test UI
 ``` typescript
 @suite class Hello {
@@ -6,6 +7,7 @@
   }
 }
 ```
+</div>
 
 ## Getting Started
 Works with:
@@ -96,7 +98,7 @@ Under the hood the decorators execute in a way like:
 }
 
 // Testdeck implements the @suite and @test decorators so
-// they define in the test framework roughly to following:
+// they emit to the test framework roughly to following:
 class Hello {
   static before() {}
   before() {}
@@ -127,3 +129,5 @@ suite("Hello", () => {
 ```
 
 ***Testdeck*** aims to provide ***1:1*** mapping between ***Testdeck OOP test UI*** features and the native test framework features.
+
+***Testdeck*** uses the TDD/BDD functional UI from existing frameworks, to implement TypeScript class decorators, that enable the ***OOP style test UI***. That makes it play well with others and integrate with any existing functional style tests.
