@@ -46,8 +46,6 @@ For starters you might want to have a look at our original `mocha-typescript`
 Not so much for the poor performance of the tests, mind you, but from reading through the sources, you might get some
 ideas on what inheritance can do for you.
 
-{% include sample_code/mocha-simple-inherited-suite.html %}
-
 
 {:.toc}
 ## Static Lifecycle Hook Chaining
@@ -56,12 +54,6 @@ Static lifecycle hooks are inherited. So if your super class provides a static l
 will have that hook and you might want to consider overriding it.
 
 However, chaining static asynchronous lifecycle hooks is not so straight forward as one might think.
-
-{% include sample_code/mocha-lifecycle-chaining-callback-style.html isStatic=true %}
-
-{% include sample_code/mocha-lifecycle-chaining-promise-style.html isStatic=true %}
-
-{% include sample_code/mocha-lifecycle-chaining-async-await-style.html isStatic=true %}
 
 
 {:.toc}
@@ -72,9 +64,3 @@ class will have that hook and you might want to consider overriding it.
 
 The below code is basically the same as shown in [Static Lifecycle Hook Chaining](#static-lifecycle-hook-chaining),
 except for the scope of the hook methods.
-
-{% include sample_code/mocha-lifecycle-chaining-callback-style.html isStatic=false %}
-
-{% include sample_code/mocha-lifecycle-chaining-promise-style.html isStatic=false %}
-
-{% include sample_code/mocha-lifecycle-chaining-async-await-style.html isStatic=false %}
