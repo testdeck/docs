@@ -175,9 +175,9 @@ All test suites allow initialization and teardown and expose hooks that execute:
  - after all tests in the test suite
 
 ***Testdeck*** exposes these as:
- - instance `before` and `after` methods,  
+ - ***instance*** `before` and `after` methods,  
   that execute before and after each test in the class
- - static `before` and `after` methods,
+ - ***static*** `before` and `after` methods,  
   that execute before and after all tests in the class
 
 ``` typescript
