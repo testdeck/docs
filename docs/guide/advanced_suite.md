@@ -38,7 +38,7 @@ class Suite {
 
 
 {:.toc}
-### slow {% include support-mocha.html %}
+### slow
 
 `slow` can be used as either a decorator or passed as a parameter to the `@suite` decorator.
 
@@ -55,7 +55,7 @@ class Suite {
 
 
 {:.toc}
-### timeout {% include support-all.html %}
+### timeout
 
 `timeout` can be used as either a decorator or passed as a parameter to the `@suite` decorator.
 
