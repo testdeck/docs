@@ -43,7 +43,7 @@ npm test
 
 
 {:.toc}
-## Parametrised Test Naming {% include support-all.html %}
+## Parametrised Test Naming
 
 {% highlight TypeScript linenos %}
 import { suite, params } from '@testdeck/mocha';
@@ -76,7 +76,7 @@ npm test
 
 
 {:.toc}
-## Pending Parameter Sets {% include support-all.html %}
+## Pending Parameter Sets
 
 {% highlight TypeScript linenos %}
 import { suite, params } from '@testdeck/mocha';
@@ -108,7 +108,7 @@ npm test
 
 
 {:.toc}
-## Skipping Parameter Sets {% include support-all.html %}
+## Skipping Parameter Sets
 
 {% highlight TypeScript linenos %}
 import { suite, params } from '@testdeck/mocha';
@@ -140,7 +140,7 @@ npm test
 
 
 {:.toc}
-## Focused Parameter Set Testing {% include support-all.html %} 
+## Focused Parameter Set Testing 
 
 {% highlight TypeScript linenos %}
 import { suite, params } from '@testdeck/mocha';

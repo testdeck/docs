@@ -72,7 +72,7 @@ class Suite {
 
 
 {:.toc}
-## Suite Naming {% include support-all.html %}
+## Suite Naming
 
 {% highlight TypeScript linenos %}
 import { suite, test } from '@testdeck/mocha';
@@ -88,7 +88,7 @@ class Suite {
 
 
 {:.toc}
-## Pending Suites {% include support-all.html %}
+## Pending Suites
 
 A suite can be marked as pending. A pending suite, without any tests will not show up in the report.
 
@@ -127,7 +127,7 @@ class ConditionallyPendingSuite {
 
 
 {:.toc}
-## Skipping Suites {% include support-all.html %}
+## Skipping Suites
 
 A suite can be marked as skipped. A skipped suite, without any tests will not show up in the report.
 
@@ -167,7 +167,7 @@ class ConditionallySkippedSuite {
 
 
 {:.toc}
-## Focused Suites {% include support-all.html %}
+## Focused Suites
 
 A suite can be marked as focused. A focused suite, without any tests will not show up in the report.
 
@@ -206,7 +206,7 @@ class ConditionallyFocusedSuite {
 
 
 {:.toc}
-## Static Lifecycle Hooks {% include support-all.html %}
+## Static Lifecycle Hooks
 
 `Testdeck` supports static test lifecycle hooks, namely `before` and `after`, which are equivalent to the `beforeAll` 
 and `afterAll` test lifecycle hooks found in either of the supported test frameworks. 
@@ -280,7 +280,7 @@ class Suite {
 
 
 {:.toc}
-## Instance Lifecycle Hooks {% include support-all.html %}
+## Instance Lifecycle Hooks
 
 `Testdeck` also supports instance level test lifecycle hooks, which also go by the names `before` and `after`. These
 hooks are the equivalent to the `beforeEach` and `afterEach` test lifecycle hooks found in either of the supported test

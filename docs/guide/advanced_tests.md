@@ -102,7 +102,7 @@ class Suite {
 
 
 {:.toc}
-## Test Naming {% include support-all.html %}
+## Test Naming
 
 {% highlight TypeScript linenos %}
 import { suite, test } from '@testdeck/mocha';
@@ -121,7 +121,7 @@ class Suite {
 
 
 {:.toc}
-## Pending Tests {% include support-all.html %}
+## Pending Tests
 
 A test can be marked as pending.
 
@@ -152,7 +152,7 @@ class Suite {
 
 
 {:.toc}
-## Skipping Tests {% include support-all.html %}
+## Skipping Tests
 
 A test can be marked for being skipped.
 
@@ -183,7 +183,7 @@ class Suite {
 
 
 {:.toc}
-## Focused Tests {% include support-all.html %}
+## Focused Tests
 
 A test can be marked as focused.
 
