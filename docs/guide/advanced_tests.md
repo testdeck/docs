@@ -39,7 +39,7 @@ class Suite {
 
 
 {:.toc}
-### retries {% include support-mocha.html %}
+### retries
 
 `retries` can be used as either a decorator or passed as a parameter to the `@test` decorator.
 
@@ -60,7 +60,7 @@ class Suite {
 
 
 {:.toc}
-### slow {% include support-mocha.html %}
+### slow
 
 `slow` can be used as either a decorator or passed as a parameter to the `@test` decorator.
 
@@ -81,7 +81,7 @@ class Suite {
 
 
 {:.toc}
-### timeout {% include support-all.html %}
+### timeout
 
 `timeout` can be used as either a decorator or passed as a parameter to the `@test` decorator.
 
