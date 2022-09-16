@@ -111,7 +111,7 @@ body.hamburger-open>nav {
 menu.framework li {
   list-style-type: none;
 }
-menu.framework.li::before {
+menu.framework>li::before {
   content: "☐ ";
 }
 
