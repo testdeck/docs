@@ -32,8 +32,6 @@ time for the child class. And this is something that we do not want to happen.
 
 So don't do this.
 
-{% include sample_code/mocha-inheritance-limitations.html %}
-
 
 {:.toc}
 ## Putting Inheritance to Test
