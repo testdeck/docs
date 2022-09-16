@@ -110,16 +110,19 @@ body.hamburger-open>nav {
 
 menu.framework li {
   list-style-type: none;
-  content: "☐";
 }
+menu.framework.li::before {
+  content: "☐ ";
+}
+
 body.mocha menu.framework>li.mocha::before {
-  content: "☑";
+  content: "☑ ";
 }
-body.jest menu.framework>li.jest {
-  content: "☑";
+body.jest menu.framework>li.jest::before {
+  content: "☑ ";
 }
-body.jasmine menu.framework>li.jasmine {
-  content: "☑";
+body.jasmine menu.framework>li.jasmine::before {
+  content: "☑ ";
 }
 
 header div.menu div.framework {
