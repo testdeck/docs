@@ -110,15 +110,16 @@ body.hamburger-open>nav {
 
 menu.framework li {
   list-style-type: none;
+  content: "☐";
 }
-body.mocha menu.framework>li.mocha {
-  list-style-type: circle;
+body.mocha menu.framework>li.mocha::before {
+  content: "☑";
 }
 body.jest menu.framework>li.jest {
-  list-style-type: circle;
+  content: "☑";
 }
 body.jasmine menu.framework>li.jasmine {
-  list-style-type: circle;
+  content: "☑";
 }
 
 header div.menu div.framework {

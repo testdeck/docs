@@ -20,6 +20,25 @@ With ***Testdeck***, you can write your tests in ***object-oriented*** style, ef
 
 ***Testdeck*** is also the successor of ***mocha-typescript***.
 
+## Hall of Fame
+To all of our contributors - a big thank you!
+
+<a href="https://github.com/pana-cc"><img src="https://avatars2.githubusercontent.com/u/24751471?v=4" title="pana-cc" width="80" height="80"></a>
+<a href="https://github.com/silkentrance"><img src="https://avatars3.githubusercontent.com/u/6068824?v=4" title="silkentrance" width="80" height="80"></a>
+<a href="https://github.com/dimastark"><img src="https://avatars3.githubusercontent.com/u/11780431?v=4" title="dimastark" width="80" height="80"></a>
+<a href="https://github.com/Haringat"><img src="https://avatars1.githubusercontent.com/u/3000678?v=4" title="Haringat" width="80" height="80"></a>
+<a href="https://github.com/godart"><img src="https://avatars2.githubusercontent.com/u/5794761?v=4" title="godart" width="80" height="80"></a>
+<a href="https://github.com/Eronana"><img src="https://avatars3.githubusercontent.com/u/9164153?v=4" title="Eronana" width="80" height="80"></a>
+<a href="https://github.com/FabianLauer"><img src="https://avatars0.githubusercontent.com/u/2205595?v=4" title="FabianLauer" width="80" height="80"></a>
+<a href="https://github.com/JoshuaKGoldberg"><img src="https://avatars1.githubusercontent.com/u/3335181?v=4" title="JoshuaKGoldberg" width="80" height="80"></a>
+<a href="https://github.com/gallayl"><img src="https://avatars0.githubusercontent.com/u/16716099?v=4" title="gallayl" width="80" height="80"></a>
+<a href="https://github.com/richardspence"><img src="https://avatars2.githubusercontent.com/u/9914123?v=4" title="richardspence" width="80" height="80"></a>
+<a href="https://github.com/sergebat"><img src="https://avatars1.githubusercontent.com/u/5421460?v=4" title="sergebat" width="80" height="80"></a>
+<a href="https://github.com/cexoso"><img src="https://avatars2.githubusercontent.com/u/11764107?v=4" title="cexoso" width="80" height="80"></a>
+<a href="https://github.com/dcharbonnier"><img src="https://avatars3.githubusercontent.com/u/6220422?v=4" title="dcharbonnier" width="80" height="80"></a>
+<a href="https://github.com/itaysabato"><img src="https://avatars0.githubusercontent.com/u/2768658?v=4" title="itaysabato" width="80" height="80"></a>
+<a href="https://github.com/stanhuff"><img src="https://avatars2.githubusercontent.com/u/4603784?v=4" title="stanhuff" width="80" height="80"></a>
+
 ## Getting Started
 Select your testing framework:
 <menu class="framework">
@@ -207,13 +226,200 @@ This prints:
     - instance after
 - static after
 
-### Focused Tests
-#### Only
-#### Skip
-### Test Modifiers
+### Test Execution Options
 #### Timeout
-### Test Data
+If the test execution takes more than the given time, it will fail.
+
+``` typescript
+import { suite, test, timeout } from "@testdeck/mocha";
+
+@suite
+class Suite {
+
+  @test(timeout(3000))
+  timeout(done) {}
+
+  @test
+  @timeout(3000)
+  timeout(done) {}
+}
+```
+
+#### Slow
+If the test execution takes more than the given time, it will be marked in the test run result summary as slow.
+
+``` typescript
+import { suite, test, slow } from "@testdeck/mocha";
+
+@suite
+class Suite {
+
+  @test(slow(2000))
+  slow(done) {}
+
+  @test
+  @slow(2000) {}
+}
+```
+
+#### Retries
+Retries will let a test attempt to run multiple times.
+
+``` typescript
+import { suite, test, retries } from "@testdeck/mocha";
+
+@suite
+class Suite {
+
+  @test(retries(2))
+  retried1() {}
+
+  @test
+  @retries(2)
+  retried2() {}
+}
+```
+
+#### Test Naming
+Class suite names will use the name of the class, or can be provided as string to the `@suite` decorator.
+
+Test names will use the name of the method name, or can be provided as string to the `@test` decorator. ES6 classes allow string literals for method names.
+
+``` typescript
+import { suite, test } from '@testdeck/mocha';
+
+/**
+ * The name of this suite will be "Suite".
+ */
+@suite
+class Suite {
+
+  /**
+   * The name of this test will be "test1".
+   */
+  @test
+  test1() {}
+
+  @test('a custom name for the test')
+  test2() {}
+  
+  @test 'alternate naming'() {}
+}
+```
+
+#### Pending Tests
+A test can be marked as pending.
+
+``` typescript
+import { suite, test, pending } from '@testdeck/mocha';
+
+@suite
+class Suite {
+
+  @test.pending
+  pending1() {}
+
+  @test
+  @pending
+  pending2() {}
+
+  @test
+  @pending(isCondition)
+  conditionallyPending() {
+  }
+}
+```
+
+#### Skipping Tests
+A test can be marked for being skipped.
+
+``` typescript
+import { suite, test, skip } from '@testdeck/mocha';
+
+@suite
+class Suite {
+
+  @test.skip
+  skipped1() {}
+
+  @test
+  @skip
+  skipped2() {}
+
+  @test
+  @skip(isCondition)
+  conditionallySkipped() {}
+}
+```
+
+#### Only
+A test can be marked as focused.
+
+When working in a particular part of your test suite, you can mark tests or suites to be the ***only*** one that execute on a test run.
+
+``` typescript
+import { suite, test, only } from '@testdeck/mocha';
+
+@suite.only
+class Suite {
+  @test
+  focused() {
+  }
+}
+
+@suite
+@only
+class Suite {
+  @test
+  focused() {
+  }
+}
+
+@suite
+class Suite {
+
+  @test.only
+  focused() {
+  }
+  
+  @test
+  @only
+  alsoFocused() {
+  }
+  
+  @test
+  @only(isCondition)
+  conditionallyFocused() {
+  }
+
+  @test
+  "this won't run while there are other tests marked as 'only'"() {}
+}
+```
+
+## Advanced
+### Parameterized Tests
+You can parameterize tests, or execute a test multiple times passing test data.
+
+``` typescript
+import { suite, params } from '@testdeck/mocha';
+
+@suite
+class Suite {
+
+  @params({ arg1: 'foo', arg2: 'bar' })
+  @params({ arg1: 'bar', arg2: 'foo' }, 'custom test name')
+  test({ arg1, arg2 }) {
+  }
+}
+```
+
+TODO: Read more...
+
 ### Dependency Injection
+
+TODO: Read more...
+
 ## Interoperability
 Compatible with standard functional TDD interfaces:
 ``` typescript
