@@ -108,20 +108,19 @@ body.hamburger-open>nav {
   }
 }
 
-menu.framework li {
+menu.framework.list li {
   list-style-type: none;
 }
-menu.framework>li::before {
+menu.framework.list>li::before {
   content: "☐ ";
 }
-
-body.mocha menu.framework>li.mocha::before {
+body.mocha menu.framework.list>li.mocha::before {
   content: "☑ ";
 }
-body.jest menu.framework>li.jest::before {
+body.jest menu.framework.list>li.jest::before {
   content: "☑ ";
 }
-body.jasmine menu.framework>li.jasmine::before {
+body.jasmine menu.framework.list>li.jasmine::before {
   content: "☑ ";
 }
 

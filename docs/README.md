@@ -41,7 +41,7 @@ To all of our contributors - a big thank you!
 
 ## Getting Started
 Select your testing framework:
-<menu class="framework">
+<menu class="framework list">
   <li class="mocha"><a href="javascript: void selectTestFramework('mocha')"><em>Mocha</em></a></li>
   <li class="jest"><a href="javascript: void selectTestFramework('jest')"><em>Jest</em></a></li>
   <li class="jasmine"><a href="javascript: void selectTestFramework('jasmine')"><em>Jasmine</em></a></li>
