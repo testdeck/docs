@@ -35,7 +35,7 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v2
       - name: Install gems
-        run: bundle install
+        run: bundle install --gemfile=docs/Gemfile
       - name: Build with Jekyll
         uses: actions/jekyll-build-pages@v1
         with:
