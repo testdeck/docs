@@ -40,6 +40,8 @@ jobs:
           bundle exec jekyll build --baseurl https://testdeck.github.io/docs
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
+        with:
+          path: docs/_site
 
   # Deployment job
   deploy:
